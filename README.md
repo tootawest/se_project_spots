@@ -8,6 +8,7 @@
 - Project Features
 - Images
 - Plans for improving the project
+- Deployment
 
 ## Intro
 
@@ -34,3 +35,9 @@ CSS - website styling gotten from figma including website layouts
 i would change the background color. It does not stand out at all. I would change it to a more engaging color that pops out at the website visitor and draws them into the page to read more about whats going on.
 
 Most peoples attention apan is not big enough to want ot do alot of reading, therefore i would use the first three lines that can be viewed as the attention grabber instead of beginning with who they where it would be a quick line telling what made them famous/ known.
+
+## Deployment
+
+This webpage is deployed to GitHub Pages
+
+[-Deployment link](https://tootawest.github.io/se_project_spots/)
