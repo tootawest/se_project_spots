@@ -9,6 +9,7 @@
 - Images
 - Plans for improving the project
 - Deployment
+- video
 
 ## Intro
 
@@ -41,3 +42,9 @@ Most peoples attention apan is not big enough to want ot do alot of reading, the
 This webpage is deployed to GitHub Pages
 
 [-Deployment link](https://tootawest.github.io/se_project_spots/)
+
+## video
+
+Video link to my video prentation about project
+
+[deployment link](https://www.loom.com/share/6aff7c3ebb8947449bb7cc25eb7bacf5?sid=cd5e67f2-9b9e-4dfe-a740-b56ccf0e4cf4)
