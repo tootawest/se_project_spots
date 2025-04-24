@@ -21,7 +21,6 @@
 
 .modal__container {
   max-width: 730px;
-  max-height: 408px;
   width: 100%;
   border-radius: 8px;
   background-color: #fff;
@@ -47,12 +46,12 @@
   border: none;
   background-color: transparent;
   transition: opacity 0.4s;
-  background-image: url= ("./images/close-button.svg");
+  background-image: url("../images/close-button.svg");
+  opacity: 0.4;
 }
 
 .modal__close-button:hover {
   opacity: 1;
-  opacity: 0.4;
 }
 
 .modal__title {
@@ -85,7 +84,7 @@
   height: 52px;
   font-weight: 500;
   font-size: 20px;
-  color: rgba(33, 33, 33, 0.3);
+  color: rgba(33, 33, 33, 1);
 }
 
 .modal__input::placeholder {
@@ -119,11 +118,16 @@
 
 @media screen and (max-width: 885px) {
   .modal {
-    padding: 30px;
+    padding: 10px;
   }
   .modal__container {
-    padding: 12px;
+    padding: 22px 12px 12px;
     width: 100%;
+  }
+
+  .modal__close-button {
+    top: 12px;
+    right: 12px;
   }
 
   .modal__label {
