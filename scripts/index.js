@@ -53,12 +53,12 @@ function handleEditProfileFormSubmit(evt) {
   evt.preventDefault();
   profileNameElement.textContent = editProfileNameInput.value;
   profileDescriptionElement.textContent = editProfileDescriptionInput.value;
-  editProfileModal.classList.remove("editProfileModal");
+  closeModal(editProfileModal);
 }
 
 function handleNewPostFormSubmit(evt) {
   evt.preventDefault();
-  editProfileModal.classList.remove("newPostModal");
+  closeModal(newPostModal);
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileFormSubmit);
