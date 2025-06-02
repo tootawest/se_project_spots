@@ -13,6 +13,10 @@
   transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 }
 
+.modal_preview {
+  padding: 0 16px;
+}
+
 .modal_is-opened {
   visibility: visible;
   opacity: 1;
@@ -52,6 +56,17 @@
 
 .modal__close-button:hover {
   opacity: 1;
+}
+
+.modal__close-button_preview {
+  top: 0px;
+  right: -52.5px;
+  background-image: url("../images/Group\ 27\ \(1\).svg");
+  opacity: 1;
+}
+
+.modal__close-button_preview:hover {
+  opacity: 0.4;
 }
 
 .modal__title {
@@ -116,6 +131,49 @@
   background: rgba(33, 33, 33, 0.8);
 }
 
+.modal__image-container {
+  position: relative;
+}
+
+.modal__image {
+  max-width: 80vw;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.modal__caption {
+  margin: 0;
+  padding: 8px 0;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(33, 33, 33, 1);
+  border-radius: 8px;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  letter-spacing: 0;
+  box-sizing: border-box;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  -webkit-background-clip: color;
+  background-clip: color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: inline-block;
+}
+
 @media screen and (max-width: 885px) {
   .modal {
     padding: 10px;
@@ -128,6 +186,15 @@
   .modal__close-button {
     top: 12px;
     right: 12px;
+  }
+
+  .modal__close-button_preview {
+    top: -48px;
+    right: 0px;
+  }
+
+  .modal__image {
+    max-width: unset;
   }
 
   .modal__label {
