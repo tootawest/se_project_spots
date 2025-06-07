@@ -76,17 +76,14 @@ function getCardElement(data) {
   cardTitleElement.textContent = data.name;
   cardImageElement.src = data.link;
   cardImageElement.alt = data.name;
-
+  console.log("cardElement");
   const likeButton = cardElement.querySelector(".card__like-button");
   likeButton.addEventListener("click", function () {
     likeButton.classList.toggle("card__like-button_active");
   });
 
   const deleteButton = cardElement.querySelector(".card__delete-button");
-  deleteButton.addEventListener("click", function () {
-    deleteButton.closest(".card").remove();
-    cardElement = null;
-  });
+  deleteButton.addEventListener("click", function () {});
 
   cardImageElement.addEventListener("click", function () {
     previewImageElement.src = data.link;
@@ -143,6 +140,8 @@ function handleNewPostFormSubmit(evt) {
 
 editProfileForm.addEventListener("submit", handleEditProfileFormSubmit);
 newPostForm.addEventListener("submit", handleNewPostFormSubmit);
+editProfileForm.addEventListener("reset", handleEditProfileFormSubmit);
+newPostForm.addEventListener("reset", handleNewPostFormSubmit);
 
 initialCards.forEach(function (item) {
   const cardElement = getCardElement(item);
