@@ -1,40 +1,9 @@
-const initialCards = [
-  {
-    name: "Golden Gate Bridge",
-    Link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
-  },
-  {
-    name: "Val Thorens",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-  {
-    name: "Restaurant terrace",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-  },
-  {
-    name: "An outdoor cafe",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-  },
-  {
-    name: "A very long bridge, over the forest and through the trees",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-  },
-  {
-    name: "Tunnel with morning light",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-  },
-  {
-    name: "Mountain house",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-];
-
 const editProfileButton = document.querySelector(".profile__edit-button");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseButton = editProfileModal.querySelector(
   ".modal__close-button"
 );
-const editProfileForm = editProfileModal.querySelector(".modal__form");
+const editProfileForm = document.forms["edit-profile-form"];
 const editProfileNameInput = editProfileModal.querySelector(
   "#profile-name-input"
 );
@@ -76,14 +45,15 @@ function getCardElement(data) {
   cardTitleElement.textContent = data.name;
   cardImageElement.src = data.link;
   cardImageElement.alt = data.name;
-  console.log("cardElement");
   const likeButton = cardElement.querySelector(".card__like-button");
   likeButton.addEventListener("click", function () {
     likeButton.classList.toggle("card__like-button_active");
   });
 
   const deleteButton = cardElement.querySelector(".card__delete-button");
-  deleteButton.addEventListener("click", function () {});
+  deleteButton.addEventListener("click", function () {
+    cardElement.remove();
+  });
 
   cardImageElement.addEventListener("click", function () {
     previewImageElement.src = data.link;
@@ -91,11 +61,12 @@ function getCardElement(data) {
     previewCaptionElement.textContent = data.name;
     openModal(previewModal);
   });
-  previewModalCloseButton.addEventListener("click", function () {
-    closeModal(previewModal);
-  });
   return cardElement;
 }
+previewModalCloseButton.addEventListener("click", function () {
+  closeModal(previewModal);
+});
+
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
 }
@@ -109,15 +80,14 @@ editProfileButton.addEventListener("click", function () {
   openModal(editProfileModal);
 });
 
-editProfileCloseButton.addEventListener("click", function () {
-  closeModal(editProfileModal);
-});
-
 newPostButton.addEventListener("click", function () {
   openModal(newPostModal);
 });
-newPostCloseButton.addEventListener("click", function () {
-  closeModal(newPostModal);
+
+const closeButtons = document.querySelectorAll(".modal__close-button");
+closeButtons.forEach((button) => {
+  const modal = button.closest(".modal");
+  button.addEventListener("click", () => closeModal(modal));
 });
 
 function handleEditProfileFormSubmit(evt) {
@@ -135,15 +105,20 @@ function handleNewPostFormSubmit(evt) {
     link: newPostImageInput.value,
   });
   cardsList.prepend(cardElement);
+  newPostCaptionInput.value = "";
+  newPostImageInput.value = "";
   closeModal(newPostModal);
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileFormSubmit);
 newPostForm.addEventListener("submit", handleNewPostFormSubmit);
-editProfileForm.addEventListener("reset", handleEditProfileFormSubmit);
-newPostForm.addEventListener("reset", handleNewPostFormSubmit);
+
+function renderCard(item, method = "prepend") {
+  const cardElement = getCardElement(item);
+
+  cardsList[method](cardElement);
+}
 
 initialCards.forEach(function (item) {
-  const cardElement = getCardElement(item);
-  cardsList.append(cardElement);
+  renderCard(item, "append");
 });
