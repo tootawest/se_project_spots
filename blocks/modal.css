@@ -115,6 +115,24 @@
   border: 1px solid rgba(33, 33, 33, 1);
 }
 
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
+  border-radius: 8px;
+}
+
+.modal__error {
+  display: block;
+  color: rgba(255, 0, 0, 0.7);
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.1;
+  letter-spacing: 0;
+  width: 630;
+  height: 18;
+  margin-top: 8px;
+}
+
 .modal__submit-button {
   width: 156px;
   height: 52px;
@@ -129,7 +147,14 @@
 
 .modal__submit-button:hover {
   cursor: pointer;
-  background: rgba(33, 33, 33, 0.8);
+  background: rgba(33, 33, 33, 1);
+}
+
+.modal__submit-button_disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: rgba(33, 33, 33, 1);
+  opacity: 0.5;
 }
 
 .modal__image-container {

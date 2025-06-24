@@ -77,6 +77,10 @@ function closeModal(modal) {
 editProfileButton.addEventListener("click", function () {
   editProfileNameInput.value = profileNameElement.textContent;
   editProfileDescriptionInput.value = profileDescriptionElement.textContent;
+  resetValidation(editProfileForm, [
+    editProfileNameInput,
+    editProfileDescriptionInput,
+  ]);
   openModal(editProfileModal);
 });
 
@@ -107,6 +111,7 @@ function handleNewPostFormSubmit(evt) {
   cardsList.prepend(cardElement);
   newPostCaptionInput.value = "";
   newPostImageInput.value = "";
+  disableButton(newPostForm.querySelector(".modal__submit-button"));
   closeModal(newPostModal);
 }
 
